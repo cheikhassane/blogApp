@@ -1,4 +1,4 @@
-import 'package:blogapp/home/home_page.dart';
+import 'package:blogapp/page/splashscreen.dart';
 import 'package:flutter/material.dart';
 
 // extension to use a hexdecimal colors
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const SplashPage(),
     );
   }
 }
