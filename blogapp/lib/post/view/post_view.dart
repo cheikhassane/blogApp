@@ -393,7 +393,7 @@ class _PostViewState extends State<PostView> implements BaseController {
             child: Padding(
               padding: EdgeInsets.all(10.0),
               child: Text(
-                "Liste vide",
+                "No posts available",
                 style: TextStyle(
                   fontFamily: 'Urbanist_bolt',
                   fontSize: 15,
