@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../main.dart';
-
-class ButtonCard extends StatelessWidget {
+class ButtonComment extends StatelessWidget {
   final String text;
   final VoidCallback onClicked;
-  const ButtonCard({
+  const ButtonComment({
     required this.text,
     required this.onClicked,
     Key? key,
@@ -14,20 +12,20 @@ class ButtonCard extends StatelessWidget {
   Widget build(BuildContext context) => ElevatedButton(
         onPressed: onClicked,
         style: ElevatedButton.styleFrom(
-          foregroundColor: Colors.white,
-          backgroundColor: HexColor.fromHex("#B16631"),
+          foregroundColor: Colors.black,
+          backgroundColor: Colors.grey.shade300,
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
           // shape: const StadiumBorder(),
           textStyle: const TextStyle(
             color: Colors.white,
-            fontFamily: 'Poppins_semibolt',
+            fontFamily: 'Urbanist_bolt',
             fontSize: 16,
           ),
         ),
         child: Text(
           text,
           style: const TextStyle(
-            fontFamily: 'Poppins_semibolt',
+            fontFamily: 'Urbanist_bolt',
             fontSize: 16,
           ),
         ),

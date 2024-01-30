@@ -1,12 +1,13 @@
 import 'dart:convert';
 
 import 'package:blogapp/constant/base_controller.dart';
-import 'package:blogapp/constant/button2.dart';
+import 'package:blogapp/constant/button_read.dart';
 import 'package:blogapp/constant/dialog_helper.dart';
 import 'package:blogapp/home/home_page.dart';
 import 'package:blogapp/post/controller/post_controller.dart';
 import 'package:blogapp/post/controller/postid_controller.dart';
 import 'package:blogapp/post/model/post_model.dart';
+import 'package:blogapp/post/model/postid_model.dart';
 import 'package:blogapp/post/view/allpost_view.dart';
 import 'package:blogapp/post/view/detail_post_view.dart';
 import 'package:blogapp/service/app_exception.dart';
@@ -25,20 +26,27 @@ class PostView extends StatefulWidget {
 class _PostViewState extends State<PostView> implements BaseController {
   final postcontroller = Get.put(PostController());
   final postidcontroller = Get.put(PostIdController());
+  RxBool isLoading = false.obs;
 
   List<PostModel> postid = [];
+  PostIdModel postid2 = PostIdModel();
   var selectpost;
 
-  Future<dynamic> getPostid() async {
-    var response = await NetworkService.getpost('post/$selectpost', "")
-        .catchError(handleError);
-    List datapost = json.decode(response);
-    postid = datapost.map((e) => PostModel.fromJson(e)).toList();
-    // print(pluvio);
-    if (selectpost != null) {
-      return postid;
-    } else {
-      print(selectpost);
+  Future<PostIdModel> getPostid() async {
+    isLoading(true);
+    try {
+      var response = await NetworkService.getpost('posts/$selectpost', "");
+      var datapostid = json.decode(response);
+
+      // Assuming PostIdModel.fromJson is a factory method
+      postid2 = PostIdModel.fromJson(datapostid);
+
+      isLoading(false);
+      return postid2;
+    } catch (error) {
+      handleError(error);
+      isLoading(false);
+      return Future.error("Failed to fetch post data");
     }
   }
 
@@ -57,7 +65,7 @@ class _PostViewState extends State<PostView> implements BaseController {
             articleview(),
             const Text(
                 "------------------------------------------------------------------"),
-            morearticle()
+            selectpost != null ? searchpostid() : morearticle()
           ],
         ),
       ),
@@ -223,6 +231,7 @@ class _PostViewState extends State<PostView> implements BaseController {
               Get.to(DetailPostView(
                 title: postidcontroller.postid.title,
                 body: postidcontroller.postid.body,
+                idpost: postidcontroller.postid.id,
               ));
             },
           ),
@@ -312,41 +321,40 @@ class _PostViewState extends State<PostView> implements BaseController {
                           final listpost = postcontroller.post[index];
                           final title = listpost.title;
                           final body = listpost.body;
-                          return Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Card(
-                              elevation: 30,
-                              color: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: ListTile(
-                                onTap: () {
-                                  Get.to(DetailPostView(
-                                    title: title,
-                                    body: body,
-                                  ));
-                                },
-                                title: Text(
-                                  listpost.title,
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontFamily: 'Urbanist_bolt',
-                                    // fontWeight: FontWeight.normal,
-                                    fontSize: 12,
-                                  ),
+                          final idpost = listpost.id;
+                          return Card(
+                            elevation: 30,
+                            color: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            child: ListTile(
+                              onTap: () {
+                                Get.to(DetailPostView(
+                                  title: title,
+                                  body: body,
+                                  idpost: idpost,
+                                ));
+                              },
+                              title: Text(
+                                listpost.title,
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: 'Urbanist_bolt',
+                                  // fontWeight: FontWeight.normal,
+                                  fontSize: 12,
                                 ),
-                                leading: const Image(
-                                  image: AssetImage("assets/images/pict3.jpg"),
-                                  fit: BoxFit.cover,
-                                ),
-                                subtitle: const Text(
-                                  "January 19,2024",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontFamily: 'Urbanist_medium',
-                                    // fontWeight: FontWeight.normal,
-                                    fontSize: 12,
-                                  ),
+                              ),
+                              leading: const Image(
+                                image: AssetImage("assets/images/pict3.jpg"),
+                                fit: BoxFit.cover,
+                              ),
+                              subtitle: const Text(
+                                "January 19,2024",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: 'Urbanist_medium',
+                                  // fontWeight: FontWeight.normal,
+                                  fontSize: 12,
                                 ),
                               ),
                             ),
@@ -356,6 +364,91 @@ class _PostViewState extends State<PostView> implements BaseController {
                     )),
         ],
       ),
+    );
+  }
+
+  Widget searchpostid() {
+    return FutureBuilder(
+      future: getPostid(),
+      builder: (BuildContext context, AsyncSnapshot<PostIdModel> snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator.adaptive());
+        } else if (snapshot.hasError) {
+          return Center(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                "Error: ${snapshot.error}",
+                style: const TextStyle(
+                  fontFamily: 'Urbanist_bolt',
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          );
+        } else if (!snapshot.hasData || snapshot.data == null) {
+          return const Center(
+            child: Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                "Liste vide",
+                style: TextStyle(
+                  fontFamily: 'Urbanist_bolt',
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          );
+        } else {
+          var postItem = snapshot.data;
+          return SizedBox(
+            height: 100,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Card(
+                elevation: 30,
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: ListTile(
+                  onTap: () {
+                    Get.to(DetailPostView(
+                      title: postItem.title,
+                      body: postItem.body,
+                      idpost: postItem.id,
+                    ));
+                  },
+                  title: Text(
+                    "${postItem!.title}",
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Urbanist_bolt',
+                      fontSize: 12,
+                    ),
+                  ),
+                  leading: const Image(
+                    image: AssetImage("assets/images/pict3.jpg"),
+                    fit: BoxFit.cover,
+                  ),
+                  subtitle: const Text(
+                    "January 19, 2024",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Urbanist_medium',
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          );
+        }
+      },
     );
   }
 

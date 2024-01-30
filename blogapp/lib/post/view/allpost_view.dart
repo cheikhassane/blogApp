@@ -64,6 +64,7 @@ class _AllPostViewState extends State<AllPostView> {
                               final listpost = postcontroller.post[index];
                               final title = listpost.title;
                               final body = listpost.body;
+                              final idpost = listpost.id;
                               return Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Card(
@@ -76,6 +77,7 @@ class _AllPostViewState extends State<AllPostView> {
                                       Get.to(DetailPostView(
                                         title: title,
                                         body: body,
+                                        idpost: idpost,
                                       ));
                                     },
                                     title: Text(

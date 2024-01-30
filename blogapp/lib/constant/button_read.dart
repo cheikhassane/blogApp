@@ -18,14 +18,14 @@ class ButtonRead extends StatelessWidget {
           // shape: const StadiumBorder(),
           textStyle: const TextStyle(
             color: Colors.white,
-            fontFamily: 'Poppins_semibolt',
+            fontFamily: 'Urbanist_bolt',
             fontSize: 14,
           ),
         ),
         child: Text(
           text,
           style: const TextStyle(
-            fontFamily: 'Poppins_semibolt',
+            fontFamily: 'Urbanist_bolt',
             fontSize: 14,
           ),
         ),

@@ -1,10 +1,13 @@
+import 'package:blogapp/comment/view/comment_view.dart';
+import 'package:blogapp/constant/buttons_comment.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DetailPostView extends StatefulWidget {
   final title;
   final body;
-  const DetailPostView({super.key, this.title, this.body});
+  final idpost;
+  const DetailPostView({super.key, this.title, this.body, this.idpost});
 
   @override
   State<DetailPostView> createState() => _DetailPostViewState();
@@ -81,6 +84,16 @@ class _DetailPostViewState extends State<DetailPostView> {
                   fontSize: 15,
                 ),
               ),
+              const SizedBox(height: 20),
+              Center(
+                  child: ButtonComment(
+                text: 'Read More Comments',
+                onClicked: () {
+                  Get.to(CommentView(
+                    idpost: widget.idpost,
+                  ));
+                },
+              ))
             ],
           ),
         ),
