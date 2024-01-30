@@ -1,5 +1,6 @@
 import 'package:blogapp/page/splashscreen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 // extension to use a hexdecimal colors
 extension HexColor on Color {
@@ -29,12 +30,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Bloc App',
+    return GetMaterialApp(
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+          scaffoldBackgroundColor: Colors.white,
+          colorScheme: ColorScheme.fromSwatch().copyWith(
+              // primary: Couleur.cm2,
+              // secondary: Couleur.cm3,
+              background: Colors.black)
+          // primarySwatch: Couleur.color1,
+          ),
+      debugShowCheckedModeBanner: false,
       home: const SplashPage(),
     );
   }

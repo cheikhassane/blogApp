@@ -9,14 +9,14 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  int splashtime = 3;
+  int splashtime = 5;
 
   @override
   void initState() {
     Future.delayed(Duration(seconds: splashtime), () async {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomePage()),
+        MaterialPageRoute(builder: (context) => const HomePage()),
       );
     });
     super.initState();
@@ -29,8 +29,8 @@ class _SplashPageState extends State<SplashPage> {
         width: MediaQuery.of(context).size.width,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/pic1.jpg"),
-            fit: BoxFit.fill,
+            image: AssetImage("assets/images/pict2.jpg"),
+            fit: BoxFit.cover,
           ),
         ),
       ),
