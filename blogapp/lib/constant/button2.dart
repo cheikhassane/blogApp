@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../main.dart';
-
-class ButtonPayer extends StatelessWidget {
+class ButtonRead extends StatelessWidget {
   final String text;
   final VoidCallback onClicked;
-  const ButtonPayer({
+  const ButtonRead({
     required this.text,
     required this.onClicked,
     Key? key,
@@ -14,21 +12,21 @@ class ButtonPayer extends StatelessWidget {
   Widget build(BuildContext context) => ElevatedButton(
         onPressed: onClicked,
         style: ElevatedButton.styleFrom(
-          foregroundColor: Colors.white,
-          backgroundColor: HexColor.fromHex("#B16631"),
+          foregroundColor: Colors.black,
+          backgroundColor: Colors.transparent,
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
           // shape: const StadiumBorder(),
           textStyle: const TextStyle(
             color: Colors.white,
             fontFamily: 'Poppins_semibolt',
-            fontSize: 16,
+            fontSize: 14,
           ),
         ),
         child: Text(
           text,
           style: const TextStyle(
             fontFamily: 'Poppins_semibolt',
-            fontSize: 16,
+            fontSize: 14,
           ),
         ),
       );

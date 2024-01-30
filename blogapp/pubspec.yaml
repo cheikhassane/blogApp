@@ -26,6 +26,8 @@ dependencies:
   get: ^4.6.6
   get_storage: ^2.1.1
   flutter_secure_storage: ^9.0.0
+  custom_searchable_dropdown: ^2.1.1
+  responsive_framework: ^1.1.1
 
 dev_dependencies:
   flutter_test:

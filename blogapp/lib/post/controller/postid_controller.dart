@@ -2,43 +2,52 @@ import 'dart:convert';
 
 import 'package:blogapp/constant/base_controller.dart';
 import 'package:blogapp/constant/dialog_helper.dart';
-import 'package:blogapp/post/model/post_model.dart';
+import 'package:blogapp/post/model/postid_model.dart';
+// import 'package:blogapp/post/model/postid_model.dart';
 import 'package:blogapp/service/app_exception.dart';
 import 'package:blogapp/service/netword_service.dart';
 import 'package:get/get.dart';
 
-class PostController extends GetxController implements BaseController {
+class PostIdController extends GetxController implements BaseController {
   RxBool isLoading = false.obs;
-  List<PostModel> post = [];
+  // List<PostIdModel> postid = [];
+  PostIdModel postid = PostIdModel();
 
   @override
   void onInit() {
-    getPost();
+    getPostId();
     super.onInit();
   }
 
-  // void getPost() async {
-  //   isLoading(true);
-  //   var response =
-  //       await NetworkService.get('posts', "").catchError(handleError);
-  //   List datapost = json.decode(response);
-  //   post = datapost.map((e) => PostModel.fromJson(e)).toList();
-  //   // print(post);
-  //   isLoading(false);
-  // }
-  void getPost() async {
+  void getPostId() async {
     isLoading(true);
     try {
-      var response = await NetworkService.get('posts', "");
-      List<dynamic> datapost = json.decode(response);
-      post = datapost.map((e) => PostModel.fromJson(e)).toList();
-      // print(post);
+      var response = await NetworkService.get(
+          'posts/6', ""); // Use try-catch block to handle errors
+      var datapostid = json.decode(response);
+
+      // Assuming PostIdModel.fromJson is a factory method
+      postid = PostIdModel.fromJson(datapostid);
+
+      // print(postid.title);
     } catch (error) {
       handleError(error);
     } finally {
       isLoading(false);
     }
   }
+
+  // void getPostId() async {
+  //   isLoading(true);
+  //   var response =
+  //       await NetworkService.get('posts/1', "").catchError(handleError);
+  //   var datapostid = json.decode(response);
+  //   print(datapostid['title']);
+  //   // List datapostid = json.decode(response);
+  //   postid = datapostid.map((e) => PostIdModel.fromJson(e));
+  //   // print(postid);
+  //   isLoading(false);
+  // }
 
   @override
   void handleError(error) {
