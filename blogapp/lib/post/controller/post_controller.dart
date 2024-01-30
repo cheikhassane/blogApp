@@ -17,28 +17,28 @@ class PostController extends GetxController implements BaseController {
     super.onInit();
   }
 
-  // void getPost() async {
-  //   isLoading(true);
-  //   var response =
-  //       await NetworkService.get('posts', "").catchError(handleError);
-  //   List datapost = json.decode(response);
-  //   post = datapost.map((e) => PostModel.fromJson(e)).toList();
-  //   // print(post);
-  //   isLoading(false);
-  // }
   void getPost() async {
     isLoading(true);
-    try {
-      var response = await NetworkService.get('posts', "");
-      List<dynamic> datapost = json.decode(response);
-      post = datapost.map((e) => PostModel.fromJson(e)).toList();
-      // print(post);
-    } catch (error) {
-      handleError(error);
-    } finally {
-      isLoading(false);
-    }
+    var response =
+        await NetworkService.get('posts', "").catchError(handleError);
+    List datapost = json.decode(response);
+    post = datapost.map((e) => PostModel.fromJson(e)).toList();
+    // print(post);
+    isLoading(false);
   }
+  // void getPost() async {
+  //   isLoading(true);
+  //   try {
+  //     var response = await NetworkService.get('posts', "");
+  //     List<dynamic> datapost = json.decode(response);
+  //     post = datapost.map((e) => PostModel.fromJson(e)).toList();
+  //     // print(post);
+  //   } catch (error) {
+  //     handleError(error);
+  //   } finally {
+  //     isLoading(false);
+  //   }
+  // }
 
   @override
   void handleError(error) {

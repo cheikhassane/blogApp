@@ -19,35 +19,34 @@ class PostIdController extends GetxController implements BaseController {
     super.onInit();
   }
 
-  void getPostId() async {
-    isLoading(true);
-    try {
-      var response = await NetworkService.get(
-          'posts/6', ""); // Use try-catch block to handle errors
-      var datapostid = json.decode(response);
-
-      // Assuming PostIdModel.fromJson is a factory method
-      postid = PostIdModel.fromJson(datapostid);
-
-      // print(postid.title);
-    } catch (error) {
-      handleError(error);
-    } finally {
-      isLoading(false);
-    }
-  }
-
   // void getPostId() async {
   //   isLoading(true);
-  //   var response =
-  //       await NetworkService.get('posts/1', "").catchError(handleError);
-  //   var datapostid = json.decode(response);
-  //   print(datapostid['title']);
-  //   // List datapostid = json.decode(response);
-  //   postid = datapostid.map((e) => PostIdModel.fromJson(e));
-  //   // print(postid);
-  //   isLoading(false);
+  //   try {
+  //     var response = await NetworkService.get(
+  //         'posts/6', ""); // Use try-catch block to handle errors
+  //     var datapostid = json.decode(response);
+
+  //     // Assuming PostIdModel.fromJson is a factory method
+  //     postid = PostIdModel.fromJson(datapostid);
+
+  //     // print(postid.title);
+  //   } catch (error) {
+  //     handleError(error);
+  //   } finally {
+  //     isLoading(false);
+  //   }
   // }
+
+  void getPostId() async {
+    isLoading(true);
+    var response = await NetworkService.get(
+        'posts/6', ""); // Use try-catch block to handle errors
+    var datapostid = json.decode(response);
+
+    // Assuming PostIdModel.fromJson is a factory method
+    postid = PostIdModel.fromJson(datapostid);
+    isLoading(false);
+  }
 
   @override
   void handleError(error) {

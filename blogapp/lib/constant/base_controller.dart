@@ -1,7 +1,7 @@
 import '../service/app_exception.dart';
 import 'dialog_helper.dart';
 
-abstract class BaseController {
+class BaseController {
   void handleError(error) {
     if (error is BadRequestException) {
       var message = error.message;

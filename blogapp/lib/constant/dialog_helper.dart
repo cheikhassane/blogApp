@@ -8,6 +8,7 @@ class DialogHelper {
   static void showErrorDialog(
       {String title = 'Erreur', description = 'Something wen wrong'}) {
     Get.dialog(Dialog(
+      backgroundColor: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(

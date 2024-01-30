@@ -8,6 +8,7 @@ import 'package:blogapp/post/controller/post_controller.dart';
 import 'package:blogapp/post/controller/postid_controller.dart';
 import 'package:blogapp/post/model/post_model.dart';
 import 'package:blogapp/post/view/allpost_view.dart';
+import 'package:blogapp/post/view/detail_post_view.dart';
 import 'package:blogapp/service/app_exception.dart';
 import 'package:blogapp/service/netword_service.dart';
 import 'package:flutter/material.dart';
@@ -214,11 +215,16 @@ class _PostViewState extends State<PostView> implements BaseController {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ButtonRead(
             text: 'Read more',
-            onClicked: () {},
+            onClicked: () {
+              Get.to(DetailPostView(
+                title: postidcontroller.postid.title,
+                body: postidcontroller.postid.body,
+              ));
+            },
           ),
           const SizedBox(height: 5),
           Obx(
@@ -242,7 +248,7 @@ class _PostViewState extends State<PostView> implements BaseController {
               color: Colors.black,
               fontFamily: 'Urbanist_medium',
               // fontWeight: FontWeight.normal,
-              fontSize: 14,
+              fontSize: 12,
             ),
           )
         ],
@@ -304,6 +310,8 @@ class _PostViewState extends State<PostView> implements BaseController {
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
                           final listpost = postcontroller.post[index];
+                          final title = listpost.title;
+                          final body = listpost.body;
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Card(
@@ -312,7 +320,12 @@ class _PostViewState extends State<PostView> implements BaseController {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10)),
                               child: ListTile(
-                                onTap: () {},
+                                onTap: () {
+                                  Get.to(DetailPostView(
+                                    title: title,
+                                    body: body,
+                                  ));
+                                },
                                 title: Text(
                                   listpost.title,
                                   style: const TextStyle(
