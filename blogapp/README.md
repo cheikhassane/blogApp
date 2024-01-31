@@ -91,5 +91,5 @@ Flutter (Channel stable, 3.16.5, on macOS 12.7.3 21H1015 darwin-x64, locale fr-S
 
 # Install
 
-clone a project: git clone https://github.com/cheikhassane/blogApp.git
-install the dependencies: flutter pub get
+- Clone a project: git clone https://github.com/cheikhassane/blogApp.git
+- Install the dependencies: flutter pub get
