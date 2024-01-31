@@ -18,9 +18,6 @@ class CommentView extends StatefulWidget {
 
 class _CommentViewState extends State<CommentView> implements BaseController {
   List<CommentModel> comments = [];
-
-  // List<CommentModel> comments = [];
-
   Future<List<CommentModel>> getComments() async {
     var response = await NetworkService.get(
             'posts/${widget.idpost.toString()}/comments', "")
@@ -33,19 +30,6 @@ class _CommentViewState extends State<CommentView> implements BaseController {
       return [];
     }
   }
-  // Future<List<CommentModel>> getComments() async {
-  //   var response = await NetworkService.get(
-  //           'posts/${widget.idpost.toString()}/comments', "")
-  //       .catchError(handleError);
-  //   List dataproduit = json.decode(response);
-  //   comments = dataproduit.map((e) => CommentModel.fromJson(e)).toList();
-  //   // print(pluvio);
-  //   if (widget.idpost != null) {
-  //     return comments;
-  //   } else {
-  //     print(widget.idpost);
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {

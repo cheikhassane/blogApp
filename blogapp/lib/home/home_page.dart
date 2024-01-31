@@ -1,4 +1,5 @@
 import 'package:blogapp/Notification/view/notification_view.dart';
+import 'package:blogapp/page/preference_view.dart';
 import 'package:blogapp/post/view/post_view.dart';
 import 'package:blogapp/user/view/user_view.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class _HomePageState extends State<HomePage> {
       case 1:
         return const NotificationView();
       case 2:
-        return const UserView();
+        return const PreferenceView();
       default:
         const PostView();
     }
@@ -39,7 +40,7 @@ class _HomePageState extends State<HomePage> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined),
-            label: "Accueil",
+            label: "Home",
             // backgroundColor: Couleur.backgroundapp,
           ),
           BottomNavigationBarItem(
@@ -49,7 +50,7 @@ class _HomePageState extends State<HomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_2_outlined),
-            label: "Préférences",
+            label: "Preference",
             // backgroundColor: Couleur.backgroundapp,
           ),
         ],

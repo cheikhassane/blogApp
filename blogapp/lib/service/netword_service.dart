@@ -18,10 +18,10 @@ class NetworkService {
       return response.body;
     } on SocketException {
       throw FetchDataException(
-          'Pas de connexion internet', buildUrl(endpoint).toString());
+          'No internet connection', buildUrl(endpoint).toString());
     } on TimeoutException {
       throw ApiNotRespondingException(
-          "L'API n'a pas répondu à temps", buildUrl(endpoint).toString());
+          "API did not respond in time", buildUrl(endpoint).toString());
     }
   }
 
@@ -37,10 +37,10 @@ class NetworkService {
       return response.body;
     } on SocketException {
       throw FetchDataException(
-          'Pas de connexion internet', buildUrl(endpoint).toString());
+          'No internet connection', buildUrl(endpoint).toString());
     } on TimeoutException {
       throw ApiNotRespondingException(
-          "L'API n'a pas répondu à temps", buildUrl(endpoint).toString());
+          "API did not respond in time", buildUrl(endpoint).toString());
     }
   }
 
@@ -52,10 +52,10 @@ class NetworkService {
       return response.body;
     } on SocketException {
       throw FetchDataException(
-          'Pas de connexion internet', buildUrl(endpoint).toString());
+          'No internet connection', buildUrl(endpoint).toString());
     } on TimeoutException {
       throw ApiNotRespondingException(
-          "L'API n'a pas répondu à temps", buildUrl(endpoint).toString());
+          "API did not respond in time", buildUrl(endpoint).toString());
     }
   }
 
@@ -69,10 +69,10 @@ class NetworkService {
       return response.body;
     } on SocketException {
       throw FetchDataException(
-          'Pas de connexion internet', buildUrl(endpoint).toString());
+          'No internet connection', buildUrl(endpoint).toString());
     } on TimeoutException {
       throw ApiNotRespondingException(
-          "L'API n'a pas répondu à temps", buildUrl(endpoint).toString());
+          "API did not respond in time", buildUrl(endpoint).toString());
     }
   }
 
@@ -94,10 +94,10 @@ class NetworkService {
       return response.body;
     } on SocketException {
       throw FetchDataException(
-          'Pas de connexion internet', buildUrl(endpoint).toString());
+          'No internet connection', buildUrl(endpoint).toString());
     } on TimeoutException {
       throw ApiNotRespondingException(
-          "L'API n'a pas répondu à temps", buildUrl(endpoint).toString());
+          "API did not respond in time", buildUrl(endpoint).toString());
     }
   }
 
@@ -110,10 +110,10 @@ class NetworkService {
       return response.body;
     } on SocketException {
       throw FetchDataException(
-          'Pas de connexion internet', buildUrl(endpoint).toString());
+          'No internet connection', buildUrl(endpoint).toString());
     } on TimeoutException {
       throw ApiNotRespondingException(
-          "L'API n'a pas répondu à temps", buildUrl(endpoint).toString());
+          "API did not respond in time", buildUrl(endpoint).toString());
     }
   }
 
@@ -126,10 +126,10 @@ class NetworkService {
       return response.body;
     } on SocketException {
       throw FetchDataException(
-          'Pas de connexion internet', buildUrl(endpoint).toString());
+          'No internet connection', buildUrl(endpoint).toString());
     } on TimeoutException {
       throw ApiNotRespondingException(
-          "L'API n'a pas répondu à temps", buildUrl(endpoint).toString());
+          "API did not respond in time", buildUrl(endpoint).toString());
     }
   }
 
@@ -142,10 +142,10 @@ class NetworkService {
       return response.body;
     } on SocketException {
       throw FetchDataException(
-          'Pas de connexion internet', buildUrl(endpoint).toString());
+          'No internet connection', buildUrl(endpoint).toString());
     } on TimeoutException {
       throw ApiNotRespondingException(
-          "L'API n'a pas répondu à temps", buildUrl(endpoint).toString());
+          "API did not respond in time", buildUrl(endpoint).toString());
     }
   }
 
