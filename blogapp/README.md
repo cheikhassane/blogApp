@@ -31,3 +31,9 @@ This application is developed with Flutter using the following resources.
 - State Management: I chose to use GetX to manage the state of the application.link: https://pub.dev/packages/get
 
 - Design: I draw inspiration from the design found on Dribbble. link: https://dribbble.com/shots/16589059-Blog-App-UI-Design
+
+- Architecture: The architecture used is the MVC (Model-View-Controller) method 
+                To generate the models, I used https://app.quicktype.io/
+
+# Screen application
+    ![Splashscreen](https://github.com/cheikhassane/blogApp/blob/main/s1.png)
