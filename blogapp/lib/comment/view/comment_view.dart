@@ -18,6 +18,7 @@ class CommentView extends StatefulWidget {
 
 class _CommentViewState extends State<CommentView> implements BaseController {
   List<CommentModel> comments = [];
+  // get comments by id post
   Future<List<CommentModel>> getComments() async {
     var response = await NetworkService.get(
             'posts/${widget.idpost.toString()}/comments', "")

@@ -32,6 +32,7 @@ class _PostViewState extends State<PostView> implements BaseController {
   PostIdModel postid2 = PostIdModel();
   var selectpost;
 
+  // get post by id post
   Future<PostIdModel> getPostid() async {
     isLoading(true);
     try {
