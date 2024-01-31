@@ -18,3 +18,7 @@ This application is developed with Flutter using the following resources.
 
 - Architecture: The architecture used is the MVC (Model-View-Controller) method 
                 To generate the models, I used https://app.quicktype.io/
+
+
+# Screen application
+    ![Splashscreen](https://github.com/cheikhassane/blogApp/blob/main/s1.png)
