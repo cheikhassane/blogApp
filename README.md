@@ -21,4 +21,4 @@ This application is developed with Flutter using the following resources.
 
 
 # Screenshot application
-    ![Splashscreen](https://github.com/cheikhassane/blogApp/blob/main/s1.png?raw=true)
+![Splashscreen](https://github.com/cheikhassane/blogApp/blob/main/s1.png?raw=true)

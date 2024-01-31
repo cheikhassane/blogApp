@@ -36,4 +36,4 @@ This application is developed with Flutter using the following resources.
                 To generate the models, I used https://app.quicktype.io/
 
 # Screen application
-    ![Splashscreen](https://github.com/cheikhassane/blogApp/blob/main/s1.png?raw=true)
+![Splashscreen](https://github.com/cheikhassane/blogApp/blob/main/s1.png?raw=true)
