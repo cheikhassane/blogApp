@@ -71,4 +71,4 @@ Flutter (Channel stable, 3.16.5, on macOS 12.7.3 21H1015 darwin-x64, locale fr-S
 ### Notifications
 ![Notification](https://github.com/cheikhassane/blogApp/blob/main/s7.png?raw=true)
 ### Preference
-![Preference](https://github.com/cheikhassane/blogApp/blob/main/s8.png?raw=true)
+![Preference](https://github.com/cheikhassane/blogApp/blob/main/s9.png?raw=true)
