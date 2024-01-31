@@ -103,8 +103,8 @@ class _PostViewState extends State<PostView> implements BaseController {
           ),
         ),
         SizedBox(
-          height: 50,
-          width: 50,
+          height: 75,
+          width: 75,
           child: IconButton(
             onPressed: () {
               Get.to(const PreferenceView());
