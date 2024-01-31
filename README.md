@@ -21,4 +21,19 @@ This application is developed with Flutter using the following resources.
 
 
 # Screenshot application
+### Splashscreen
 ![Splashscreen](https://github.com/cheikhassane/blogApp/blob/main/s1.png?raw=true)
+### Home
+![Home](https://github.com/cheikhassane/blogApp/blob/main/s2.png?raw=true)
+### Search Article
+![Search](https://github.com/cheikhassane/blogApp/blob/main/s3.png?raw=true)
+### Details Articles
+![Details](https://github.com/cheikhassane/blogApp/blob/main/s4.png?raw=true)
+### Lists of Comments
+![Details](https://github.com/cheikhassane/blogApp/blob/main/s5.png?raw=true)
+### All Articles
+![All](https://github.com/cheikhassane/blogApp/blob/main/s6.png?raw=true)
+### Notifications
+![Notification](https://github.com/cheikhassane/blogApp/blob/main/s7.png?raw=true)
+### Preference
+![Preference](https://github.com/cheikhassane/blogApp/blob/main/s8.png?raw=true)
