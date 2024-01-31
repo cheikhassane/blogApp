@@ -1,9 +1,9 @@
 import 'dart:convert';
-
 import 'package:blogapp/constant/base_controller.dart';
 import 'package:blogapp/constant/button_read.dart';
 import 'package:blogapp/constant/dialog_helper.dart';
 import 'package:blogapp/home/home_page.dart';
+import 'package:blogapp/page/preference_view.dart';
 import 'package:blogapp/post/controller/post_controller.dart';
 import 'package:blogapp/post/controller/postid_controller.dart';
 import 'package:blogapp/post/model/post_model.dart';
@@ -106,8 +106,15 @@ class _PostViewState extends State<PostView> implements BaseController {
           height: 50,
           width: 50,
           child: IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.person),
+            onPressed: () {
+              Get.to(const PreferenceView());
+            },
+            icon: const Image(
+              image: AssetImage("assets/images/photo.png"),
+              fit: BoxFit.cover,
+              // height: 50,
+              // width: 50,
+            ),
           ),
         ),
       ],

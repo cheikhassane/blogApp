@@ -1,7 +1,6 @@
 import 'package:blogapp/Notification/view/notification_view.dart';
 import 'package:blogapp/page/preference_view.dart';
 import 'package:blogapp/post/view/post_view.dart';
-import 'package:blogapp/user/view/user_view.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
