@@ -41,7 +41,7 @@ class _PreferenceViewState extends State<PreferenceView> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: ListTile(
-                  title: const Text("Conditions d'utilisation",
+                  title: const Text("terms of use",
                       style: TextStyle(
                           color: Colors.black,
                           fontFamily: 'Urbanist_bolt',
@@ -84,7 +84,7 @@ class _PreferenceViewState extends State<PreferenceView> {
               ),
               child: ListTile(
                 //tileColor: Colors.red.shade700,
-                title: const Text("Changer de mot de passe",
+                title: const Text("Change password",
                     style: TextStyle(
                         color: Colors.black,
                         fontFamily: 'Urbanist_bolt',
@@ -114,7 +114,7 @@ class _PreferenceViewState extends State<PreferenceView> {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: ListTile(
-                title: const Text("Modifier utilisateur",
+                title: const Text("Edit user",
                     style: TextStyle(
                         color: Colors.black,
                         fontFamily: 'Urbanist_bolt',
@@ -144,7 +144,7 @@ class _PreferenceViewState extends State<PreferenceView> {
               borderRadius: BorderRadius.circular(10),
             ),
             child: ListTile(
-              title: const Text("Connexion",
+              title: const Text("Connection",
                   style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
